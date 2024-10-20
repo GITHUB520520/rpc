@@ -39,12 +39,12 @@ public class SpiLoader {
     /**
      * 扫描路径
      */
-    private static final String[] SCAN_DIRS = new String[]{RPC_SYSTEM_SPI_DIR, RPC_CUSTOM_SPI_DIR};
+    private static final String[] SCAN_DIRS = new String[]{ RPC_CUSTOM_SPI_DIR, RPC_SYSTEM_SPI_DIR };
 
     /**
      * 动态加载的类列表
      */
-    private static final List<Class<?>> LOAD_CLASS_LIST = Arrays.asList(Serializer.class);
+    private static final Class<?>[] LOAD_CLASS_LIST = new Class<?>[]{ Serializer.class };
 
     /**
      * 加载所有类型
