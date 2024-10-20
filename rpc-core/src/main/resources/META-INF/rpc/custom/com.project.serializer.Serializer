@@ -1,0 +1,2 @@
+json=com.project.serializer.JsonSerializer
+kryo=com.project.serializer.KryoSerializer

@@ -7,26 +7,35 @@ import java.util.Map;
 
 public class SerializerFactory{
 
-//    public static final Map<String, Serializer> serializerMap = new HashMap<>(){{
-//        put(SerializerKeys.JDK, new JdkSerializer());
-//        put(SerializerKeys.JSON, new JsonSerializer());
-//        put(SerializerKeys.KRYO, new KryoSerializer());
-//        put(SerializerKeys.HESSIAN, new HessianSerializer());
-//    }};;
-//
-//    public static Serializer getSerializer(String key){
-//        return serializerMap.get(key);
-//    }
+    public static volatile boolean isInit = false;
 
-    static {
-        SpiLoader.load(Serializer.class);
+    public static void init(){
+        if (!isInit){
+            synchronized (SerializerFactory.class){
+                if (!isInit){
+                    SpiLoader.load(Serializer.class);
+                    isInit = true;
+                }
+            }
+        }
     }
 
     public static Serializer getSerializer(String key){
+        init();
         return SpiLoader.getInstance(Serializer.class, key);
     }
 
+    private static volatile Serializer defaultSerializer;
 
-    private static final Serializer DEFAULT_SERIALIZER = new JdkSerializer();
+    public static Serializer getDefaultSerializer() {
+        if (defaultSerializer == null) {
+            synchronized (SerializerFactory.class) {
+                if (defaultSerializer == null) {
+                    defaultSerializer = new JdkSerializer();  // 默认序列化器
+                }
+            }
+        }
+        return defaultSerializer;
+    }
 
 }
