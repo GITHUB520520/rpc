@@ -1,0 +1,4 @@
+rpc:
+  name: rpc
+  host: localhost
+  port: 8081
