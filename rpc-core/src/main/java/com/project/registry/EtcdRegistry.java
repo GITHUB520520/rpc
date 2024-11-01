@@ -15,6 +15,7 @@ import java.time.Duration;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 public class EtcdRegistry implements Registry {
@@ -37,6 +38,7 @@ public class EtcdRegistry implements Registry {
     public void init(RegistryConfig registryConfig) {
         client = Client.builder().endpoints(registryConfig.getAddress()).connectTimeout(Duration.ofMillis(registryConfig.getTimeout())).build();
         kvClient = client.getKVClient();
+        heart();
     }
 
     @Override
@@ -92,6 +94,14 @@ public class EtcdRegistry implements Registry {
     @Override
     public void destroy() {
         System.out.println("当前节点下线");
+        // 取消所有注册的服务
+        for (String key : localRegisterNodeKeySet) {
+            try {
+                kvClient.delete(ByteSequence.from(key, StandardCharsets.UTF_8)).get();
+            } catch (Exception e) {
+                throw new RuntimeException("取消注册失败", e);
+            }
+        }
         // 释放资源
         if (kvClient != null) {
             kvClient.close();
