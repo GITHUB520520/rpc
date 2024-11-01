@@ -24,21 +24,21 @@ public class EasyProviderExample {
 //        rpc = RpcApplication.getRpcConfig();
 //        System.out.println(rpc);
 
+        String serviceName = UserService.class.getName();
+        LocalRegistry.register(serviceName, UserServiceImpl.class);
         RpcConfig rpcConfig = RpcApplication.getRpcConfig();
         RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
         Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
         ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo();
-        serviceMetaInfo.setServiceName(UserService.class.getName());
+        serviceMetaInfo.setServiceName(serviceName);
         serviceMetaInfo.setServiceHost(rpcConfig.getServerHost());
         serviceMetaInfo.setServicePort(rpcConfig.getServerPort());
-        // 注册服务
-        LocalRegistry.register(UserService.class.getName(), UserServiceImpl.class);
-
         try {
             registry.register(serviceMetaInfo);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
 
         // 启动 web 服务
         HttpServer httpServer = new VertxHttpServer();

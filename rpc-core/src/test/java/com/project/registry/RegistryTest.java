@@ -49,7 +49,7 @@ public class RegistryTest {
     public void unRegister() {
         ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo();
         serviceMetaInfo.setServiceName("myService");
-        serviceMetaInfo.setServiceVersion("1.0");
+        serviceMetaInfo.setServiceVersion("2.0");
         serviceMetaInfo.setServiceHost("localhost");
         serviceMetaInfo.setServicePort(1234);
         registry.unRegister(serviceMetaInfo);
@@ -62,6 +62,7 @@ public class RegistryTest {
         serviceMetaInfo.setServiceVersion("1.0");
         String serviceKey = serviceMetaInfo.getServiceKey();
         List<ServiceMetaInfo> serviceMetaInfoList = registry.serviceDiscovery(serviceKey);
+        System.out.println(serviceMetaInfoList.size());
         Assert.assertNotNull(serviceMetaInfoList);
     }
 }
