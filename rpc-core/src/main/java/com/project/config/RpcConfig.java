@@ -36,6 +36,11 @@ public class RpcConfig {
      */
     private boolean isMock = true;
 
+    /**
+     * 注册中心配置
+     */
+    private RegistryConfig registryConfig = new RegistryConfig();
+
     private String serializer = SerializerKeys.JDK;
 
 
