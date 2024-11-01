@@ -1,4 +1,4 @@
-package com.project.register;
+package com.project.registry;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

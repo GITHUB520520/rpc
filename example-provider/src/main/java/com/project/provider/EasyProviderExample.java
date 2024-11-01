@@ -6,9 +6,9 @@ import com.project.common.service.UserService;
 import com.project.config.RegistryConfig;
 import com.project.config.RpcConfig;
 import com.project.model.ServiceMetaInfo;
-import com.project.register.LocalRegistry;
-import com.project.register.Registry;
-import com.project.register.RegistryFactory;
+import com.project.registry.LocalRegistry;
+import com.project.registry.Registry;
+import com.project.registry.RegistryFactory;
 import com.project.server.HttpServer;
 import com.project.server.VertxHttpServer;
 import com.project.utils.ConfigUtils;
@@ -21,7 +21,7 @@ public class EasyProviderExample {
     public static void main(String[] args) {
         RpcConfig rpc = ConfigUtils.loadConfig(RpcConfig.class, "rpc");
         RpcApplication.init(rpc);
-        rpc = RpcApplication.getRpcConfig();
+//        rpc = RpcApplication.getRpcConfig();
 //        System.out.println(rpc);
 
         RpcConfig rpcConfig = RpcApplication.getRpcConfig();

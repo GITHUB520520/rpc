@@ -1,4 +1,4 @@
-package com.project.register;
+package com.project.registry;
 
 import cn.hutool.json.JSONUtil;
 import com.project.config.RegistryConfig;
@@ -10,7 +10,6 @@ import io.etcd.jetcd.options.PutOption;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 public class EtcdRegistry implements Registry {

@@ -1,4 +1,4 @@
-package com.project.register;
+package com.project.registry;
 
 /**
  * 注册中心键名常量

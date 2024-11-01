@@ -3,8 +3,8 @@ package com.project;
 import com.project.config.RegistryConfig;
 import com.project.config.RpcConfig;
 import com.project.constant.RpcConstant;
-import com.project.register.Registry;
-import com.project.register.RegistryFactory;
+import com.project.registry.Registry;
+import com.project.registry.RegistryFactory;
 import com.project.utils.ConfigUtils;
 import lombok.extern.slf4j.Slf4j;
 

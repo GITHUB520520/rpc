@@ -1,1 +1,1 @@
-etcd=com.project.register.EtcdRegistry
+etcd=com.project.registry.EtcdRegistry

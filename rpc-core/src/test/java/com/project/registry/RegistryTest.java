@@ -1,4 +1,4 @@
-package com.project.register;
+package com.project.registry;
 
 import com.project.config.RegistryConfig;
 import com.project.model.ServiceMetaInfo;
