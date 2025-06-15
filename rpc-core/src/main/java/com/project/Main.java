@@ -1,6 +1,9 @@
 package com.project;
 
+import com.project.common.service.UserService;
+import com.project.registry.LocalRegistry;
 import com.project.serializer.Serializer;
+import com.project.server.VertxHttpServer;
 
 import java.util.ServiceLoader;
 

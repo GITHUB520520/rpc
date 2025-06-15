@@ -32,7 +32,7 @@ public class RpcConfig {
     private Integer serverPort = 8080;
 
     /**
-     * 是否使用mock
+     * 是否使用 mock
      */
     private boolean isMock = true;
 

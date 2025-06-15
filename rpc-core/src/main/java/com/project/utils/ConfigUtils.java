@@ -36,6 +36,8 @@ public class ConfigUtils {
         }
         configFileBuilder.append(".properties");
         Props props = new Props(configFileBuilder.toString());
+
+        // 将以 prefix 为前缀的配置映射到 tClass 类中
         return props.toBean(tClass, prefix);
     }
 }
