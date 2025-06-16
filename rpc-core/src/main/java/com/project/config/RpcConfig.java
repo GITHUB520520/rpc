@@ -2,6 +2,7 @@ package com.project.config;
 
 import com.project.serializer.Serializer;
 import com.project.serializer.SerializerFactory;
+import com.project.loadbalancer.LoadBalancerKeys;
 import com.project.serializer.SerializerKeys;
 import lombok.Data;
 
@@ -43,5 +44,9 @@ public class RpcConfig {
 
     private String serializer = SerializerKeys.JDK;
 
+    /**
+     * 负载均衡器
+     */
+    private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
 
 }
