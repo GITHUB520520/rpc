@@ -1,3 +1,3 @@
-roundRobin=com.yupi.yurpc.loadbalancer.RoundRobinLoadBalancer
-random=com.yupi.yurpc.loadbalancer.RandomLoadBalancer
-consistentHash=com.yupi.yurpc.loadbalancer.ConsistentHashLoadBalancer
+roundRobin=com.project.loadbalancer.RoundRobinLoadBalancer
+random=com.project.loadbalancer.RandomLoadBalancer
+consistentHash=com.project.loadbalancer.ConsistentHashLoadBalancer

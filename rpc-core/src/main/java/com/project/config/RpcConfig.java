@@ -1,5 +1,7 @@
 package com.project.config;
 
+import com.project.fault.retry.RetryStrategyKeys;
+import com.project.fault.tolerant.TolerantStrategyKeys;
 import com.project.serializer.Serializer;
 import com.project.serializer.SerializerFactory;
 import com.project.loadbalancer.LoadBalancerKeys;
@@ -48,5 +50,16 @@ public class RpcConfig {
      * 负载均衡器
      */
     private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
+
+
+    /**
+     * 重试策略
+     */
+    private String retryStrategy = RetryStrategyKeys.NO;
+
+    /**
+     * 容错策略
+     */
+    private String tolerantStrategy = TolerantStrategyKeys.FAIL_FAST;
 
 }
