@@ -2,6 +2,7 @@ package com.project.consumer;
 
 
 import com.project.RpcApplication;
+import com.project.bootstrap.ConsumerBootstrap;
 import com.project.common.model.User;
 import com.project.common.service.UserService;
 import com.project.config.RpcConfig;
@@ -14,13 +15,10 @@ import com.project.utils.ConfigUtils;
 public class EasyConsumerExample {
 
     public static void main(String[] args) {
-        // todo 需要获取 UserService 的实现类对象
-        RpcConfig rpc = ConfigUtils.loadConfig(RpcConfig.class, "rpc");
-        RpcApplication.init(rpc);
-        rpc = RpcApplication.getRpcConfig();
-        System.out.println(rpc);
+
+        ConsumerBootstrap.init();
         // 静态代码
-//        UserService userService = new UserServiceProxy();
+        // UserService userService = new UserServiceProxy();
         // 动态代理
         UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
