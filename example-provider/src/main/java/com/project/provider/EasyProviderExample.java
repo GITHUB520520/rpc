@@ -11,6 +11,7 @@ import com.project.registry.Registry;
 import com.project.registry.RegistryFactory;
 import com.project.server.HttpServer;
 import com.project.server.VertxHttpServer;
+import com.project.server.tcp.VertxTcpServer;
 import com.project.utils.ConfigUtils;
 
 /**
@@ -41,7 +42,7 @@ public class EasyProviderExample {
 
 
         // 启动 web 服务
-        HttpServer httpServer = new VertxHttpServer();
+        HttpServer httpServer = new VertxTcpServer();
         httpServer.doStart(RpcApplication.getRpcConfig().getServerPort()); // 启动服务器
     }
 }
