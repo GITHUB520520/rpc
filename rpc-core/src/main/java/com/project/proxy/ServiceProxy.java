@@ -90,6 +90,7 @@ public class ServiceProxy implements InvocationHandler {
                 // 容错机制
                 TolerantStrategy tolerantStrategy = TolerantStrategyFactory.getInstance(rpcConfig.getTolerantStrategy());
                 rpcResponse = tolerantStrategy.doTolerant(null, e);
+                e.printStackTrace();
             }
             return rpcResponse.getData();
         } catch (IOException e) {

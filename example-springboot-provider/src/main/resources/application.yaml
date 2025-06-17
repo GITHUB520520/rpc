@@ -1,0 +1,7 @@
+rpc:
+  name: hurpc
+  version: 2.0
+  serverPort: 9000
+  isMock: false
+  serializer: jdk
+  serverHost: localhost

@@ -1,5 +1,7 @@
 package com.project.examplespringbootprovider;
 
+import com.project.RpcApplication;
+import com.project.config.RpcConfig;
 import com.project.hurpcspringbootstarter.annotation.EnableRpc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

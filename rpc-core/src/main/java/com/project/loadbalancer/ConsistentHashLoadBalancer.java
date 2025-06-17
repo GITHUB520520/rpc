@@ -24,6 +24,7 @@ public class ConsistentHashLoadBalancer implements LoadBalancer {
     @Override
     public ServiceMetaInfo select(Map<String, Object> requestParams, List<ServiceMetaInfo> serviceMetaInfoList) {
         if (serviceMetaInfoList.isEmpty()) return null;
+        if (serviceMetaInfoList.size() == 1) return serviceMetaInfoList.get(0);
         for (ServiceMetaInfo serviceMetaInfo : serviceMetaInfoList) {
             for (int i = 1; i <= VIRTUAL_NODE_NUM; i++) {
                 String key = serviceMetaInfo.getServiceAddress() + "#" + i;
